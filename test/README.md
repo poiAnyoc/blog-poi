@@ -8,7 +8,7 @@
 ![Wechat](images/IMG_4202.JPG ':size=25%')
 
 ## Jump My Git
-[Paypal Me](https://xxxxx.com)
+[Paypal Me](https://github.com/poiAnyoc)
 
 ## 音乐播放器
 [音乐播放器](https://poianyoc.github.io/blog-poi/music-player/index.html)
