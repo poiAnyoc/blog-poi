@@ -14,13 +14,13 @@
 [磨砂玻璃效果](https://poianyoc.github.io/blog-poi/css/filter/backdrop-filter/frosting-glass.html)
 
 ## 文字描边效果
-[文字描边效果](https://poianyoc.github.io/blog-poi/css/text-stroke-1.html)
+[文字描边效果](https://poianyoc.github.io/blog-poi/css/text-stroke/text-stroke-1.html)
 
 ## 九宫格裂开效果
 [九宫格裂开效果](https://poianyoc.github.io/blog-poi/css/nth-child/hover-night-grid.html)
 
 ## 文字适应图片内容
-[文字适应图片内容](https://poianyoc.github.io/blog-poi/css/fliter/svg-filter/hover-/text-filter.html)
+[文字适应图片内容](https://poianyoc.github.io/blog-poi/css/filter/svg-filter/text-svg-filter.html)
 
 ## 音乐播放器
 [音乐播放器](https://poianyoc.github.io/blog-poi/music-player/index.html)
