@@ -1,0 +1,129 @@
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>文字适应图片纹理</title>
+	<style type="text/css">
+		body{
+			margin: 0;
+			padding: 0;
+
+			text-align: center;
+		}
+		
+		svg {
+			margin-top: 10px;
+		}
+
+		text{
+			font-size: 100px;
+		}
+
+		.circle{
+			width: 100px;
+			height: 100px;
+			border: 1px #999 solid;
+			margin: 20px 0 0 20px;
+			border-radius: 50%;
+			background: conic-gradient(#f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
+			position: relative;
+			animation: rotate 2s 0s infinite linear;
+			cursor: pointer;
+			animation-play-state: paused;
+		}
+	</style>
+</head>
+<body>
+
+	<input type="text" id="text-input"/>
+
+	<div id="circle-div" class="circle"></div>
+
+<svg viewBox="0 0 600 330">
+	<defs>
+		<filter id="conform">
+			<feImage href="https://card.gomein.net.cn/T10lZXBQYT1RCvBVdK_800.jpg"
+					x="0"
+					y="0"
+					width="100%"
+					height="100%"
+					preserveAspectRatio="none"
+					result="ORIGIN_IMAGE"></feImage>
+
+			<feColorMatrix in="ORIGIN_IMAGE" 
+						type="saturate" 
+						values="0" 
+						result="GRAY_IMAGE">
+			</feColorMatrix>		
+			<feDisplacementMap 
+				in="SourceGraphic"
+				in2="GRAY_IMAGE" 
+				scale="50" 
+				xChannelSelector="R"
+				yChannelSelector="R"
+				result="TEXTURED_TEXT">
+
+			</feDisplacementMap>
+					<!-- href="https://card.gomein.net.cn/T10lZXBQYT1RCvBVdK_800.jpg" -->
+			<feImage 
+					href="https://t8.baidu.com/it/u=630105248,3379768981&fm=193"
+					x="0"
+					y="0"
+					width="100%"
+					height="100%"
+					preserveAspectRatio="none"
+					result="BG"></feImage>
+			<feColorMatrix in="TEXTURED_TEXT" 
+						type="matrix" 
+						values="1 0 0 0 0
+								0 1 0 0 0
+								0 0 1 0 0
+								0 0 0 .9 0" 
+						result="OPACITY_TEXT">
+			</feColorMatrix>	
+			<feBlend in="BG" 
+						in2="OPACITY_TEXT"
+						mode="multiply" 
+						result="BLENDED_TEXT">
+			</feBlend>	
+		</filter>
+	</defs>
+
+	<!-- href="https://card.gomein.net.cn/T10lZXBQYT1RCvBVdK_800.jpg" -->
+	<Image 
+	href="https://t8.baidu.com/it/u=630105248,3379768981&fm=193"
+			x="0"
+			y="0"
+			width="100%"
+			height="100%"
+			preserveAspectRatio="none"></Image>
+	<text id="filter-text" 
+			x="50%"
+			y="50%"
+			fone-size="10em"
+			font-weight="bold"
+			text-anchor="middle"
+			alignment-baseline="middle"
+			fill="#000" filter="url(#conform)">ABCD</text>
+</svg>
+<script type="text/javascript">
+	var selectInput = document.querySelector("#text-input");
+
+	selectInput.onchange = function(e) {
+		document.querySelector("text").innerText = e.target.value;
+	}
+
+
+	document.querySelector("#circle-div").onclick = function(e) {
+		let colorText = document.querySelector("text");
+		console.log('1', colorText);
+
+		var dropColor = new EyeDropper();
+		dropColor.open().then(res => {
+			colorText.setAttribute('fill', res.sRGBHex);
+		})
+	}
+</script>
+</body>
+</html>
