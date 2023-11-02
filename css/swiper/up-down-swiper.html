@@ -1,0 +1,242 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>上下滚动轮播</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			list-style: none;
+		}
+		body{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			height: 100vh;
+			background: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%);
+		}
+
+		.shell {
+			display: flex;
+			align-items: center;
+			position: relative;
+			padding: 130px 0;
+		}
+
+		.carousel {
+			position: relative;
+			width: 520px;
+			height: 500px;
+			padding-top: 150px;
+			perspective: 300px;
+		}
+		.arrows {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			padding: 10px;
+			position: absolute;
+			right: 15px;
+		}
+
+		.up, .next{
+			margin: 5px 0;
+			padding: 5px;
+			width: 50px;
+			height: 50px;
+			border: 3px solid rgb(255, 255, 255);
+			border-radius: 10px;
+			background-color: #ffffff61;
+			color: #fff;
+			transition: .3s;
+		}
+
+		.up:hover, .next:hover{
+			background-color: #fff;
+			color: #9795f0;
+		}
+
+		.boxs {
+			width: 100%;
+			height: 210px;
+			position: absolute;
+			transform-style: preserve-3d;
+			transition: 1s;
+		}
+
+		.box {
+			position: absolute;
+			width: 520px;
+			height: 200px;
+			border: 2px solid #fff;
+			border-radius: 10px;
+			overflow: hidden;
+			opacity: .7;
+		}
+
+		.box img {
+			width: 100%;
+			transform: translateY(-50px);
+		}
+
+		.box.selected {
+			border-color: goldenrod;
+			border-width: 5px;
+			opacity: 1;
+		}
+
+	</style>
+</head>
+<body>
+<div class="shell">
+	<div class="carousel">
+		<ol class="boxs">
+			<li class="box">
+				<img src="https://hbimg.b0.upaiyun.com/a811e518aebfd9d33296bda039a0870b44bd2b62194733-wleBB6_fw658" alt="" />
+			</li>
+			<li class="box">
+				<img src="https://images.ali213.net/picfile/pic/2023/09/15/20230915115658829.jpg" alt="" />
+			</li>
+			<li class="box">
+				<img src="https://images.ali213.net/picfile/pic/2023/09/15/20230915115659760.jpg" alt="" />
+			</li>
+			<li class="box">
+				<img src="https://images.ali213.net/picfile/pic/2023/09/15/20230915115659244.jpg" alt="" />
+			</li>
+			<li class="box">
+				<img src="https://img.soogif.com/QbilvG9O1ciD25getIngZbQ3vXeCrfcm.gif" alt="" />
+			</li>
+			<li class="box">
+				<img src="https://hbimg.huabanimg.com/737f46193ffb09ae502972248b833d20a6ec150cb9c09-AZSpjf_fw658" alt="" />
+			</li>
+			<li class="box">
+				<img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201710%2F04%2F20171004152246_8NRMX.thumb.1000_0.gif&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1701441571&t=29f782adf617b3639fd2a487281b4320" alt="" />
+			</li>
+			<li class="box">
+				<img src="https://hbimg.b0.upaiyun.com/64f59ac4954d795caa337fd53718da6a490dff811f7076-Eb3WP3_fw658" alt="" />
+			</li>
+			<li class="box">
+				<img src="https://img.soogif.com/GD3tZCeFOkwf7C2IVBGQqSlci5qPds95.gif" alt="" />
+			</li>
+			<li class="box">
+				<img src="https://hbimg.b0.upaiyun.com/45b591c04c62f66c62e8803abeb159572a4c0671a99c1-Kd7cb7_fw658" alt="" />
+			</li>
+			<li class="box">
+				<img src="https://hbimg.b0.upaiyun.com/19b1eb9375bd01f015e8d76b9b828a1a2267f0a284e56-e3xakm_fw658" alt="" />
+			</li>
+			<li class="box">
+				<img src="https://hbimg.b0.upaiyun.com/a29799b8226e8686cf2449c9f61d92956e6c731f16975d-ic0px8_fw658" alt="" />
+			</li>
+			<li class="box">
+				<img src="https://hbimg.b0.upaiyun.com/a811e518aebfd9d33296bda039a0870b44bd2b62194733-wleBB6_fw658" alt="" />
+			</li>
+			<li class="box">
+				<img src="https://hbimg.b0.upaiyun.com/a811e518aebfd9d33296bda039a0870b44bd2b62194733-wleBB6_fw658" alt="" />
+			</li>
+			<li class="box">
+				<img src="https://hbimg.b0.upaiyun.com/a811e518aebfd9d33296bda039a0870b44bd2b62194733-wleBB6_fw658" alt="" />
+			</li>
+			<li class="box">
+				<img src="https://hbimg.b0.upaiyun.com/a811e518aebfd9d33296bda039a0870b44bd2b62194733-wleBB6_fw658" alt="" />
+			</li>
+			<li class="box">
+				<img src="https://hbimg.b0.upaiyun.com/a811e518aebfd9d33296bda039a0870b44bd2b62194733-wleBB6_fw658" alt="" />
+			</li>
+			<li class="box">
+				<img src="https://hbimg.b0.upaiyun.com/a811e518aebfd9d33296bda039a0870b44bd2b62194733-wleBB6_fw658" alt="" />
+			</li>
+			<li class="box">
+				<img src="https://hbimg.b0.upaiyun.com/a811e518aebfd9d33296bda039a0870b44bd2b62194733-wleBB6_fw658" alt="" />
+			</li>
+			<li class="box">
+				<img src="https://hbimg.b0.upaiyun.com/a811e518aebfd9d33296bda039a0870b44bd2b62194733-wleBB6_fw658" alt="" />
+			</li>
+			<li class="box">
+				<img src="https://hbimg.b0.upaiyun.com/a811e518aebfd9d33296bda039a0870b44bd2b62194733-wleBB6_fw658" alt="" />
+			</li>
+			<li class="box">
+				<img src="https://hbimg.b0.upaiyun.com/a811e518aebfd9d33296bda039a0870b44bd2b62194733-wleBB6_fw658" alt="" />
+			</li>
+			<li class="box">
+				<img src="https://hbimg.b0.upaiyun.com/a811e518aebfd9d33296bda039a0870b44bd2b62194733-wleBB6_fw658" alt="" />
+			</li>
+		</ol>
+	</div>
+
+	<div class="arrows">
+		<button class="up"><i class="iconfont icon-shangjiantou"></i></button>
+		<button class="next"><i class="iconfont icon-xiajiantou"></i></button>
+	</div>
+</div>
+</body>
+<script>
+	// 获取外层容器
+	const shell = document.querySelector(".boxs");
+	// 获取所有子元素
+	const cells = document.querySelectorAll(".box");
+	// 获取容器宽度
+	const cellWidth = shell.offsetWidth;
+	// 获取容器高度
+	const cellHeight = shell.offsetHeight;
+	// 设置子元素大小为容器高度
+	const cellSize = cellHeight;
+	// 子元素数量
+	const cellCount = 23;
+	// 计算半径
+	const radius = Math.round((cellSize / 1.8) / Math.tan(Math.PI / cellCount));
+	// 计算每个子元素的角度
+	const theta = 360 / cellCount;
+	// 当前选中的子元素索引
+	let selectedIndex = 0;
+	function rotateshell() {
+		// 计算旋转角度
+		const angle = theta * selectedIndex * -1;
+		// 设置容器的旋转和平移效果
+		shell.style.transform = 'translateZ(' + -radius + 'px) ' + 'rotateX(' + -angle + 'deg)';
+		// 计算当前选中的子元素索引
+		const cellIndex = selectedIndex < 0 ? (cellCount - ((selectedIndex * -1) % cellCount)) : (selectedIndex % cellCount);
+		cells.forEach((cell, index) => {
+			if(cellIndex === index) {
+				// 添加选中样式
+				cell.classList.add('selected');
+			}else {
+				// 移除选中样式
+				cell.classList.remove('selected');
+			}
+		})
+	}
+
+	function selectPrev() {
+		// 选中上一个子元素
+		selectedIndex--;
+		rotateshell();
+	}
+
+	function selectNext() {
+		// 选中下一个子元素
+		selectedIndex++;
+		rotateshell();
+	}
+	// 获取上一个按钮
+	const prevBtn = document.querySelector('.up');
+	// 绑定点击事件
+	prevBtn.addEventListener('click', selectPrev);
+	// 获取下一个按钮
+	const nextBtn = document.querySelector('.next');
+	// 绑定点击事件
+	nextBtn.addEventListener('click', selectNext);
+	function initshell() {
+		cells.forEach((cell, i) => {
+			const cellAngle = theta * i;
+			cell.style.transform = 'rotateX(' + -cellAngle + 'deg) translateZ(' + radius + 'px)';
+		})
+		// 初始化容器
+		rotateshell();
+	}
+
+	initshell();
+</script>
+</html>
