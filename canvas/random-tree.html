@@ -1,0 +1,68 @@
+<html lang=en>
+<head>
+	<meta charset="UTF-8">
+	<title>随机树</title>
+	<style type="text/css">
+		body{
+			background-color: rgb(193, 198, 220);
+		}
+	</style>
+</head>
+<body>
+	<canvas></canvas>
+	<script>
+		const canvas = document.querySelector('canvas');
+		const ctx = canvas.getContext('2d');
+
+		canvas.width = window.innerWidth * window.devicePixelRatio;
+		canvas.height = window.innerHeight * window.devicePixelRatio;
+
+		ctx.translate(canvas.width / 2, canvas.height);
+		ctx.scale(1, -1);
+		drawBranch([0, 0], 20, 200, 90);
+
+		function drawBranch(v0, thick, length, dir) {
+			if(thick < 12 && Math.random() < 0.2) {
+				if(Math.random() < 0.5) {
+					ctx.beginPath();
+					ctx.arc(...v0, 6, 0, 2 * Math.PI);
+					ctx.fillStyle = Math.random() < 0.5 ? '#fff' : '#f40';
+					ctx.fill();
+				}
+				return;
+			}
+			if(thick < 2) {
+				if(Math.random() < 0.3) {
+					ctx.beginPath();
+					ctx.arc(...v0, 7, 0, 2 * Math.PI);
+					ctx.fillStyle = Math.random() < 0.7 ? '#fff' : '#f40';
+					ctx.fill();
+				}
+				return;
+			}
+			ctx.beginPath();
+			ctx.moveTo(...v0);
+
+			const v1 = [
+				v0[0] + length * Math.cos((dir * Math.PI) / 180),
+				v0[1] + length * Math.sin((dir * Math.PI) / 180)
+			];
+			ctx.lineTo(...v1);
+			ctx.strokeStyle = '#333';
+			ctx.lineCap = 'round';
+			ctx.lineWidth = thick;
+			ctx.stroke();
+
+			// 笔直分支
+			if(Math.random() < 0.3) {
+				drawBranch(v1, thick, length * 0.8, dir);
+			}else {
+				// 分叉分支
+				// 绘制左分支和右分支
+				drawBranch(v1, thick * 0.8, length * 0.8, dir + Math.random() * 30);
+				drawBranch(v1, thick * 0.8, length * 0.8, dir - Math.random() * 30);
+			}
+		}
+	</script>
+</body>
+</html>

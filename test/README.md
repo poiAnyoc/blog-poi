@@ -36,3 +36,6 @@
 
 ### 井字棋
 [井字棋](https://poianyoc.github.io/blog-poi/games/keenerTicTacToeGame/index.html)
+
+### 随机树生成
+[井字棋](https://poianyoc.github.io/blog-poi/canvas/random-tree.html)
