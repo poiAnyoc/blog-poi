@@ -1,0 +1,29 @@
+<html lang=en>
+<head>
+	<meta charset="UTF-8">
+	<title>CSS下划线动画</title>
+	<style type="text/css">
+		.title{
+			color: #333;
+			line-height: 2;
+		}
+		.title span{
+			background: linear-gradient(to right, #ff5f57, #28c840) no-repeat right bottom;
+			background-size: 0px 2px;
+			/* 乱入效果 transition: 1s; */
+			transition: background-size 1s;
+		}
+		.title span:hover{
+			background-size: 100% 2px;
+			background-position: left bottom;
+		}
+	</style>
+</head>
+<body>
+	<h2 class="title">
+		<span>
+			Lorem i study my abc defhasd asdas cadsad 123132,asd fsdfsdf 123123 asdasd sadiqoeq qweiqweoqi qweiujqowie qewqeoiqwj asdjalksdj sdlfjlsdf wqpoeqp asdasd ;laskd;asasd sdkjfhjksdf uiqoweyiuew wqeqwejch safkdsjnfsdf adakldj！
+		</span>
+	</h2>
+</body>
+</html>

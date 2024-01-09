@@ -11,6 +11,8 @@
 [Paypal Me](https://github.com/poiAnyoc)
 
 ## CSS效果
+### CSS下划线
+[CSS下划线](https://poianyoc.github.io/blog-poi/css/down-line.html)
 
 ### 磨砂玻璃效果
 [磨砂玻璃效果](https://poianyoc.github.io/blog-poi/css/filter/backdrop-filter/frosting-glass.html)
@@ -27,8 +29,10 @@
 ### 文字适应图片内容
 [文字适应图片内容](https://poianyoc.github.io/blog-poi/css/filter/svg-filter/text-svg-filter.html)
 
+## canvas
 ### 点击更换图片中的颜色
 [点击更换图片中的颜色](https://poianyoc.github.io/blog-poi/canvas-changeColor/clickcanva-changecolor.html)
+
 
 ## 休闲
 ### 音乐播放器
@@ -38,4 +42,4 @@
 [井字棋](https://poianyoc.github.io/blog-poi/games/keenerTicTacToeGame/index.html)
 
 ### 随机树生成
-[井字棋](https://poianyoc.github.io/blog-poi/canvas/random-tree.html)
+[随机数生成](https://poianyoc.github.io/blog-poi/canvas/random-tree.html)
