@@ -47,3 +47,7 @@
 
 ### 井字棋
 [井字棋](https://poianyoc.github.io/blog-poi/games/keenerTicTacToeGame/index.html)
+
+## 其他
+### 跟随OS系统换肤
+[跟随OS系统换肤](https://poianyoc.github.io/blog-poi/os/os-change-skin.html)

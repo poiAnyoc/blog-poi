@@ -1,0 +1,53 @@
+<html lang=en>
+<head>
+	<meta charset="UTF-8">
+	<title>跟随系统OS的主题切换</title>
+	<style type="text/css">
+		body{
+			background: var(--skin);
+		}
+		.change-os{
+			font-size: inherit;
+			padding: 5px 20px;
+			background: lightslategray;
+			color: #fff;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<select id="change-os" class="change-os">
+		<option value="OS">跟随系统</option>
+		<option value="light">亮色</option>
+		<option value="dark">暗色</option>
+	</select>
+	<script type="text/javascript">
+		const bodyElement = document.querySelector('body');
+		const changeOS = document.getElementById('change-os');
+		const prefers = matchMedia('(prefers-color-scheme: dark)');
+
+		function setSkin(value) {
+		    bodyElement.style.setProperty('--skin', `${value === 'dark' ? '#000' : '#fff'}`);
+		}
+
+		function followOS() {
+			const v = prefers.matches ? 'dark' : 'light';
+			document.documentElement.dataset.theme = v;
+			setSkin(v);
+		}
+
+		function handleChange(e) {
+			if(e.target.value === 'OS'){
+				followOS();
+				prefers.addEventListener('change', followOS);
+			}else {
+		    	document.documentElement.dataset.theme = e.target.value;
+				setSkin(e.target.value);
+				prefers.removeEventListener('change', followOS);
+			}
+		}
+		changeOS.addEventListener('change', handleChange); // 添加change事件监听器
+	</script>
+</body>
+</html>
