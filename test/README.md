@@ -14,6 +14,9 @@
 ### CSS下划线
 [CSS下划线](https://poianyoc.github.io/blog-poi/css/down-line.html)
 
+### 鼠标移入高亮效果
+[鼠标移入高亮效果](https://poianyoc.github.io/blog-poi/css/mouse-hover-light.html)
+
 ### 磨砂玻璃效果
 [磨砂玻璃效果](https://poianyoc.github.io/blog-poi/css/filter/backdrop-filter/frosting-glass.html)
 
@@ -29,9 +32,13 @@
 ### 文字适应图片内容
 [文字适应图片内容](https://poianyoc.github.io/blog-poi/css/filter/svg-filter/text-svg-filter.html)
 
+
 ## canvas
 ### 点击更换图片中的颜色
 [点击更换图片中的颜色](https://poianyoc.github.io/blog-poi/canvas-changeColor/clickcanva-changecolor.html)
+
+### 随机树生成
+[随机数生成](https://poianyoc.github.io/blog-poi/canvas/random-tree.html)
 
 
 ## 休闲
@@ -40,6 +47,3 @@
 
 ### 井字棋
 [井字棋](https://poianyoc.github.io/blog-poi/games/keenerTicTacToeGame/index.html)
-
-### 随机树生成
-[随机数生成](https://poianyoc.github.io/blog-poi/canvas/random-tree.html)
