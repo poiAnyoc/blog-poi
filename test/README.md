@@ -38,11 +38,13 @@
 
 ## canvas
 ### 点击更换图片中的颜色
-[点击更换图片中的颜色](https://poianyoc.github.io/blog-poi/canvas-changeColor/clickcanva-changecolor.html)
+[点击更换图片中的颜色](https://poianyoc.github.io/blog-poi/canvas/canvas-changeColor/clickcanva-changecolor.html)
 
 ### 随机树生成
 [随机数生成](https://poianyoc.github.io/blog-poi/canvas/random-tree.html)
 
+### 图片调色盘
+[图片调色盘](https://poianyoc.github.io/blog-poi/canvas/mouse-pic-rgb-canvas.html)
 
 ## 休闲
 ### 音乐播放器

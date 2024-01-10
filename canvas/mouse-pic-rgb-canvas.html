@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>图片调色盘</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		html {
+		    --c1: #fff;
+		    --c2: #fff;
+		    --c3: #fff;
+		    background-image: linear-gradient(var(--c1), var(--c2), var(--c3));
+		}
+
+		.contain-body {
+		    width: 100%;
+		    height: 100vh;
+		}
+
+		.grid{
+			display: grid;
+			grid-template-columns: repeat(2, 50%);
+			grid-template-rows: repeat(2, 1fr);
+			justify-items: center;
+    		align-items: center;
+			padding: 10px;
+		}
+
+		.grid div {
+		    width: 520px;
+		    height: 318px;
+		    overflow: hidden;
+		    border-radius: 5px;
+		    transition: all 0.6s;
+		}
+		
+		img {
+		    width: 100%;
+		    height: 100%;
+		}
+
+		.mouseenter {
+		    width: 530px !important;
+		    height: 328px !important;
+		    padding: 10px;
+		    box-shadow: 1px 1px 19px 3px #000000;
+		}
+
+		.opacity {
+		    opacity: 0.15;
+		}
+	</style>
+</head>
+<body>
+	<div class="contain-body">
+		<div class="grid">
+			<div class="item">
+				<img src="https://picsum.photos/600/600?1" crossOrigin="" class="cover"/>
+			</div>
+			<div class="item">
+				<img src="https://picsum.photos/600/600?2" crossOrigin="" class="cover"/>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+	<script type="text/javascript">
+		// const colorThief = new ColorThief();
+
+		/* $(document).ready(function(){
+		    $(".cover").on("mouseover", function(e) {
+		        console.log("Mouse entered the image", e);
+
+		        let colors = colorThief.getPalette($(e.target), 3);
+		        console.log("colors", colors);
+		    });
+		    
+		    $(".cover").on("mouseout", function() {
+		        console.log("Mouse left the image");
+		    });
+		}); */
+		
+		// 引入 colorthief
+	    const colorThief = new ColorThief();
+	    const html = document.documentElement; // 通过html来设置属性
+	    // 通过 js 来首先图片的放大和还原来
+	    let divs = document.querySelector(".grid").querySelectorAll("div")
+	    for (const iterator of divs) {
+	        iterator.addEventListener("mouseenter", () => {
+	            divs.forEach((e) => {
+	                e.classList.remove("mouseenter")
+	                e.classList.add("opacity")
+	            });
+
+	            // 使用取色器来获取图片的主要颜色 ：第三方API colorthief
+	            // colorThief.getPalette => 返回的是一个回调函数  | colors 为一个二维数组
+	            let colors = colorThief.getPalette(iterator.querySelector("img"), 3); 
+	            // 该API只有两个函数，第一个getColor只获取第一个，getPalette获取你想要得到多少个参数的rgb
+	            // console.log(colors);
+	            const colorArray = colors.map((c) => `rgb(${c[0]},${c[1]},${c[2]})`);
+	            // console.log(c1, c2, c3);
+	            html.style.setProperty('--c1', colorArray[0])
+	            html.style.setProperty('--c2', colorArray[1])
+	            html.style.setProperty('--c3', colorArray[2]);
+	            // console.log(colors);
+	            iterator.classList.add("mouseenter")
+	            iterator.classList.remove("opacity")
+	        })
+	        iterator.addEventListener("mouseleave", () => {
+	            html.style.setProperty('--c1', '#fff')
+	            html.style.setProperty('--c2', '#fff')
+	            html.style.setProperty('--c3', '#fff');
+	            iterator.classList.remove("mouseenter")
+	            // iterator.classList.add("opacity")
+	            divs.forEach((e) => {
+	                e.classList.remove("opacity")
+	            })
+	        })
+	    }
+	</script>
+</body>
+</html>
