@@ -41,8 +41,12 @@
 ### 上下轮播效果
 [上下轮播效果](https://poianyoc.github.io/blog-poi/css/swiper/up-down-swiper.html)
 
+## svg
 ### 文字适应图片内容
 [文字适应图片内容](https://poianyoc.github.io/blog-poi/css/filter/svg-filter/text-svg-filter.html)
+
+### 故障波纹动效
+[故障波纹动效](https://poianyoc.github.io/blog-poi/css/filter/svg-filter/noise-error-svg.html)
 
 
 ## canvas
