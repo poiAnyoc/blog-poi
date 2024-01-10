@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>卡片拖动到另外一个窗口，屏幕坐标和窗口通信</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		.card{
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<img draggable="false" src="https://picsum.photos/200/300" crossOrigin="" class="card"/>
+
+	<script type="text/javascript">
+		const card = document.querySelector('.card');
+
+		function init() {
+			const url = new URL(location.href);
+			const type = url.searchParams.get('type') || '1';
+			card.src = `https://picsum.photos/200/300?${type}`;
+		}
+
+		function pauseEvent(e){
+		    //已做兼容性处理
+		    if(e.stopPropagation) e.stopPropagation();
+		    if(e.preventDefault) e.preventDefault();
+		    e.cancelBubble=true;
+			e.returnValue=false;
+			return false;
+		}
+
+		init();
+
+		function barHeight() {
+			return window.outerHeight - window.innerHeight;
+		}
+
+		function clientToScreen(x, y) {
+			const screenX = x + window.screenX;
+			const screenY = y + window.screenY + barHeight();
+			return [screenX, screenY];
+		}
+
+		function screenToClient(x, y) {
+			const clientX = x - window.screenX;
+			const clientY = y - window.screenY - barHeight();
+			return [clientX, clientY];
+		}
+
+		const channel = new BroadcastChannel('card');
+		channel.onmessage = (e) => {
+			console.log('message', e);
+			const clientPoints = screenToClient(...e.data);
+			card.style.left = clientPoints[0] + 'px';
+			card.style.top = clientPoints[1] + 'px';
+		}
+
+		// 要拖动的话，元素必须是position:absulte || realvalte之类的，top和left才能起作用
+		card.onmousedown = (e) => {
+			pauseEvent(e);
+			let x = e.pageX - card.offsetLeft;
+			let y = e.pageY - card.offsetTop;
+			window.onmousemove = (e) => {
+				const cx = e.pageX - x;
+				const cy = e.pageY - y;
+				card.style.left = cx + 'px';
+				card.style.top = cy + 'px';
+
+				let screenPoints = clientToScreen(cx, cy);
+				channel.postMessage(screenPoints);
+			}
+			window.onmouseup = (e) => {
+				window.onmousemove = null;
+				window.onmouseup = null;
+			}
+		}
+	</script>
+</body>
+</html>

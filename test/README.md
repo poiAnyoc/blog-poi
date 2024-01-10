@@ -6,6 +6,12 @@
 ![Alipay](images/IMG_4184.JPG ':size=25% ')
 ![](images/coffee.jpg ':size=30% ')
 ![Wechat](images/IMG_4202.JPG ':size=25%')
+```
+联系我：
+1、访问git，在git仓库中留言
+2、qq
+3、vx
+```
 
 ## Jump My Git
 [Paypal Me](https://github.com/poiAnyoc)
@@ -53,6 +59,10 @@
 ### 井字棋
 [井字棋](https://poianyoc.github.io/blog-poi/games/keenerTicTacToeGame/index.html)
 
+## 浏览器通信
+### 卡片拖动到另外一个窗口
+[卡片拖动到另外一个窗口](https://poianyoc.github.io/blog-poi/other/handler/screen-drag-pic-handler.html)
+
 ## 其他
 ### 跟随OS系统换肤
-[跟随OS系统换肤](https://poianyoc.github.io/blog-poi/os/os-change-skin.html)
+[跟随OS系统换肤](https://poianyoc.github.io/blog-poi/other/os/os-change-skin.html)
