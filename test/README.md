@@ -52,6 +52,9 @@
 ### 图片调色盘
 [图片调色盘](https://poianyoc.github.io/blog-poi/canvas/mouse-pic-rgb-canvas.html)
 
+### 粒子时钟
+[粒子时钟](https://poianyoc.github.io/blog-poi/canvas/canvas-draw-time-lock.html)
+
 ## 休闲
 ### 音乐播放器
 [音乐播放器](https://poianyoc.github.io/blog-poi/music-player/index.html)
