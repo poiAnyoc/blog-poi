@@ -20,6 +20,9 @@
 ### CSS下划线
 [CSS下划线](https://poianyoc.github.io/blog-poi/css/down-line.html)
 
+### CSS多行文本擦除效果
+[CSS下划线](https://poianyoc.github.io/blog-poi/css/text-backgroud-stereoscopic.html)
+
 ### 鼠标移入高亮效果
 [鼠标移入高亮效果](https://poianyoc.github.io/blog-poi/css/mouse-hover-light.html)
 

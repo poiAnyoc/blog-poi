@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多行文本擦除效果</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            background-color: #0d1021;
+            color: #fff;
+        }
+
+        .container{
+            width: 80%;
+            margin:  1em auto;
+            font-family: '行楷一简', Courier, monospace;
+            line-height: 2;
+            text-indent: 2em;
+            position: relative;
+        }
+        .eraser{
+            position: absolute;
+            inset: 0;
+        }
+
+        @property --p {
+            syntax: '<percentage>';
+            initial-value: 0%;
+            inherits: false;
+        }
+
+        .text{
+            /*--p: 30%;*/
+            background: linear-gradient(to right,
+            transparent var(--p),
+            #0d1021 calc(var(--p) + 30px));
+            color: transparent;
+            animation: erase 5s linear forwards;
+        }
+        
+        @keyframes erase {
+            to {
+                --p: 100%
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <p>
+        CSS元素的重叠方式: 方法1、设置负margin 给元素设置负margin使其移动后 原来的位置是不会保留的
+        负margin可以让元素的占用空间变小 后面的元素可以覆盖当前的元素 (这里有两个相同大小的p 宽高都...
+        php中文网
+        CSS合并共享之CSS优化 - DIVCSS5
+        1、将不同CSS选择器中各个相同代码(相同代码较多可使用,如果相同代码较少去合并反而造成代码臃肿)提取到
+        一个未命名选择器里如"{""}"内。 如下演示代码 假如以上3个在一个页面...
+    </p>
+    <p class="eraser">
+        <span class="text">
+            CSS元素的重叠方式: 方法1、设置负margin 给元素设置负margin使其移动后 原来的位置是不会保留的
+            负margin可以让元素的占用空间变小 后面的元素可以覆盖当前的元素 (这里有两个相同大小的p 宽高都...
+            php中文网
+            CSS合并共享之CSS优化 - DIVCSS5
+            1、将不同CSS选择器中各个相同代码(相同代码较多可使用,如果相同代码较少去合并反而造成代码臃肿)提取到
+            一个未命名选择器里如"{""}"内。 如下演示代码 假如以上3个在一个页面...
+        </span>
+    </p>
+</div>
+
+</body>
+</html>
