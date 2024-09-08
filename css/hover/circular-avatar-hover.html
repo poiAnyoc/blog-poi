@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圆形头像放大hover的效果</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .avatar{
+            margin: 0 auto;
+            background-image: url('https://picsum.photos/200/200?1');
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .avatar::before, .avatar::after{
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+        }
+
+        .avatar::before{
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .avatar::after{
+            background: inherit;
+            /** 裁剪 **/
+            clip-path: circle(0% at 50% 50%);
+            transition: 0.3s;
+        }
+        .avatar:hover::after{
+            clip-path: circle(50% at 50% 50%);
+        }
+    </style>
+</head>
+<body>
+
+<div class="avatar">
+
+</div>
+
+</body>
+</html>

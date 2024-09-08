@@ -41,6 +41,9 @@
 ### 上下轮播效果
 [上下轮播效果](https://poianyoc.github.io/blog-poi/css/swiper/up-down-swiper.html)
 
+### 圆形头像鼠标移入效果
+[圆形头像鼠标移入效果](https://poianyoc.github.io/blog-poi/css/hover/circular-avatar-hover.html)
+
 ## svg
 ### 文字适应图片内容
 [文字适应图片内容](https://poianyoc.github.io/blog-poi/css/filter/svg-filter/text-svg-filter.html)
